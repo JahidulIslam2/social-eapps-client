@@ -22,12 +22,12 @@ const Home = () => {
             .then(response => response.json())
             .then((imgData) => {
                 if (imgData.success) {
-                    console.log(imgData.data.url)
+
                     const postData = {
                         image: imgData.data.url,
-                        status: imgData.textarea,
+                        status: data.textarea,
                     }
-
+                    console.log(postData)
                     fetch('http://localhost:5000/postData', {
                         method: 'POST',
                         headers: {
@@ -37,8 +37,8 @@ const Home = () => {
                     })
                         .then((res) => { res.json() })
                         .then(data => {
-                            reset();
                             console.log(data)
+                            reset();
                         })
 
                 }
